@@ -18,8 +18,8 @@ double S(double array_x[], double array_y[], double array_m[], double x, double 
 	double y2 = array_y[i];
 
 	double S = ((x2 - x) * (x2 - x) * (x2 - x) - h * h * (x2 - x)) * array_m[i - 1] / (6 * h) +
-		   ((x - x1) * (x - x1) * (x - x1) - h * h * (x - x1)) * array_m[i] / (6 * h) +
-		   (x2 - x) * y1 / h + (x - x1) * y2 / h;
+			   ((x - x1) * (x - x1) * (x - x1) - h * h * (x - x1)) * array_m[i] / (6 * h) +
+		       (x2 - x) * y1 / h + (x - x1) * y2 / h;
 
 	return S;
 }
@@ -54,8 +54,7 @@ int main() {
 
 
 
-	for (int n = 5; n < 11000; n *= 2) {
-		int count_segments = n;
+	for (int count_segments = 5; count_segments < 11000; count_segments *= 2) {
 		double h = M_PI / count_segments;
 
 
@@ -160,9 +159,9 @@ int main() {
 
 
 		if (d_ev != 0)
-			cout << n << "\t" << d_max << "\t" << d_ev << "\t" << K_d << "\n";
+			cout << count_segments << "\t" << d_max << "\t" << d_ev << "\t" << K_d << "\n";
 		else
-			cout << n << "\t" << d_max << "\t" << "-\t\t" << "-\n";
+			cout << count_segments << "\t" << d_max << "\t" << "-\t\t" << "-\n";
 
 
 
